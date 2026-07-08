@@ -72,8 +72,12 @@ def attach_lora_adapters(model, r=8, lora_alpha=16, target_modules=None):
         model = FastLanguageModel.get_peft_model(model = model,target_modules = target_modules, lora_alpha = lora_alpha, r = r)
         return model
 
-# Step 7 - count_trainable_parameters (not yet solved)
-# TODO: implement
+# Step 7 - count_trainable_parameters
+def count_trainable_parameters(model):
+    """Return the number of trainable parameters in `model`."""
+    # TODO: sum p.numel() over model.parameters() where requires_grad is True
+    num = sum(p.numel() for p in model.parameters() if p.requires_grad == True)
+    return num
 
 # Step 8 - trainable_fraction (not yet solved)
 # TODO: implement
