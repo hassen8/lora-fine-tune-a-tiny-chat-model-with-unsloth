@@ -176,11 +176,6 @@ def build_sft_trainer(model, tokenizer, dataset, training_args, max_seq_length=2
     return trainer
 
 # Step 17 - run_sft_training
-import sys
-import importlib
-if "trl" in sys.modules:
-    importlib.reload(sys.modules["trl"])
-
 def run_sft_training(trainer):
     """Run a few SFT steps and return the final training loss as a float."""
     # TODO: drive the trainer through its short optimization run and return the final loss
